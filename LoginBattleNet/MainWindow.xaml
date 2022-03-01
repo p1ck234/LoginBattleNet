@@ -24,13 +24,49 @@
         <Grid Name="ToolBar" Grid.Row="0">
             <Polygon Fill="White" Opacity="0.2"
                  Points="107,0,115,7,249,7,257,0"></Polygon>
-        </Grid>
-        <StackPanel Orientation="Horizontal"
+            <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Right">
-            <Image Height="13" Width="13" Margin="5,5,10,5" 
-                   Source="Resources/минус не актив"/>
-            <Image Height="13" Width="13" Margin="5,5,10,5" 
-                   Source="Resources/крест не актив"/>
-        </StackPanel>
+                <Image Height="13" Width="13" Margin="5,5,10,5" 
+                   Name="btnMin">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="Resources/минус не актив.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=btnMin}"
+                                         Value="True">
+                                    <Setter Property="Source"
+                                        Value="Resources/минус актив.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                    <Image.Effect>
+                        <BlurEffect Radius="1"/>
+                    </Image.Effect>
+                </Image>
+                <Image Height="13" Width="13" Margin="5,5,10,5" 
+                   Name="btnExit">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="Resources/крест не актив.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=btnExit}"
+                                         Value="True">
+                                    <Setter Property="Source"
+                                        Value="Resources/крест актив.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                    <Image.Effect>
+                        <BlurEffect Radius="1"/>
+                    </Image.Effect>
+                </Image>
+            </StackPanel>
+        </Grid>
+        <Grid Name="LogoConteiner" Grid.Row="1">
+            <Image Source="Resources/logo.png" HorizontalAlignment="Center"
+                   Margin="36,-28,35,-28" VerticalAlignment="Center"/>
+        </Grid>
     </Grid>
 </Window>
