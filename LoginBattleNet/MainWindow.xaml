@@ -153,6 +153,23 @@
                             </Style>
                         </Image.Style>
                     </Image>
+                    <Image Height="11" Width="11" Margin="3,0,5,0">
+                        <Image.Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="Source" Value="Resources/стрелка не активный.png"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=cmbBorder}"
+                                                 Value="True">
+                                        <Setter Property="Source" Value="Resources/стрелка активный.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor,
+                                        AncestorType={x:Type Button},AncestorLevel=1}, Path=IsPressed}" Value="True">
+                                        <Setter Property="Source" Value="Resources/стрелка не активный.png"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
                 </StackPanel>
             </Button>
         </Border>
