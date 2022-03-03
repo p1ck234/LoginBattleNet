@@ -121,6 +121,12 @@
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="глобус_активный" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\глобус активный.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="глобус_не_активный" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\глобус не активный.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="крест_актив" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\крест актив.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
