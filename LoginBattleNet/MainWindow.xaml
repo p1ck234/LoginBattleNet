@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LoginBattleNet"
         mc:Ignorable="d"
         Title="MainWindow" Height="515" Width="365" ResizeMode="NoResize"
-        WindowStyle="None">
+        WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF232D3E"/>
@@ -21,13 +21,14 @@
             <RowDefinition Height="300"/>
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
-        <Grid Name="ToolBar" Grid.Row="0">
+        <Grid Name="ToolBar" Background="Transparent" Grid.Row="0"
+              MouseDown="ToolBar_MouseDown">
             <Polygon Fill="White" Opacity="0.2"
                  Points="107,0,115,7,249,7,257,0"></Polygon>
             <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Right">
                 <Image Height="13" Width="13" Margin="5,5,10,5" 
-                   Name="btnMin">
+                   Name="btnMin" MouseDown="btnMin_MouseDown">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="Resources/минус не актив.png"/>
@@ -45,7 +46,7 @@
                     </Image.Effect>
                 </Image>
                 <Image Height="13" Width="13" Margin="5,5,10,5" 
-                   Name="btnExit">
+                   Name="btnExit" MouseDown="btnExit_MouseDown">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="Resources/крест не актив.png"/>
@@ -64,7 +65,8 @@
                 </Image>
             </StackPanel>
         </Grid>
-        <Grid Name="LogoConteiner" Grid.Row="1">
+        <Grid Name="LogoConteiner" Background="Transparent" Grid.Row="1"
+              MouseDown="LogoConteiner_MouseDown">
             <Image Source="Resources/logo.png" HorizontalAlignment="Center"
                    Margin="36,-28,35,-28" VerticalAlignment="Center"/>
         </Grid>
