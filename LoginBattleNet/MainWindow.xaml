@@ -47,6 +47,31 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <Style x:Key="cmbBtn" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="#FF272E3B"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Foreground" Value="#FF929496"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"
+                                              Margin="30,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF323945"/>
+                                <Setter Property="Foreground" Value="#FFC3C4C8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -134,7 +159,7 @@
                     </Style.Triggers>
                 </Style>
             </Border.Style>
-            <Button Style="{StaticResource ComboboxBtn}">
+            <Button Name="btnReg" Click="btnReg_Click" Style="{StaticResource ComboboxBtn}">
                 <StackPanel Orientation="Horizontal">
                     <Image Height="14" Width="14" Margin="5,0,0,0">
                         <Image.Style>
@@ -173,5 +198,163 @@
                 </StackPanel>
             </Button>
         </Border>
+
+        <Grid Name="gridRegion" Grid.Row="2" Height="160" Width="200" 
+              HorizontalAlignment="Left" VerticalAlignment="Top"
+              Margin="25,42,0,0" Visibility="Hidden">
+            <Polygon Fill="Black" StrokeThickness="2" Stroke="#FF0C0101"
+                     Points="0,8,
+                     0,145,
+                     190,145,
+                     190,8,
+                     37,8,
+                     29,0
+                     21,8"/>
+            <Polygon Fill="#FF272E38" StrokeThickness="1" Stroke="#FF40454E"
+                     Points="0,8,
+                     0,145,
+                     190,145,
+                     190,8,
+                     37,8,
+                     29,0
+                     21,8"/>
+            <Grid Height="132" Width="190" HorizontalAlignment="Left" VerticalAlignment="Top"
+                  Margin="0,10,0,0">
+                <StackPanel Orientation="Vertical">
+                    <Button Style="{StaticResource cmbBtn}">
+                        <TextBlock Text="Америка" />
+                    </Button>
+                    <Button Style="{StaticResource cmbBtn}">
+                        <TextBlock Text="Европа" />
+                    </Button>
+                    <Button Style="{StaticResource cmbBtn}">
+                        <TextBlock Text="Азия" />
+                    </Button>
+                    <Button Style="{StaticResource cmbBtn}">
+                        <TextBlock Text="Китай" />
+                    </Button>
+                    <Polygon Fill="White" Points="0,3,190,3" StrokeThickness="1" Stroke="#FF40454E"/>
+                    <Button Style="{StaticResource cmbBtn}" Margin="0,3,0,0">
+                        <TextBlock Text="Мне нужна помощь" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <TextBlock Text="Европа" Foreground="#FFACB3BF" Grid.Row="2" FontSize="14"
+                   Margin="75,17,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        
+        <Border Name="cmbBorder2" Grid.Row="2" Height="24" Width="25" HorizontalAlignment="Right"
+                VerticalAlignment="Top" Margin="0,15,25,0" BorderThickness="1"
+                Background="Black">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="#FF333842"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF51555C"></Setter>
+                        </Trigger>
+                        <EventTrigger RoutedEvent="PreviewMouseDown">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                    Duration="0:0:0.100" To="#FF333842"></ColorAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="PreviewMouseUp">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                    Duration="0:0:0.100" To="#FF51555C"></ColorAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Button Name="btnSet" Click="btnSet_Click" Style="{StaticResource ComboboxBtn}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="14" Width="14" Margin="5,0,0,0">
+                        <Image.Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="Source" Value="Resources/шестеренка не активная.png"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=cmbBorder2}"
+                                                 Value="True">
+                                        <Setter Property="Source" Value="Resources/шестеренка активная.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor,
+                                        AncestorType={x:Type Button},AncestorLevel=1}, Path=IsPressed}" Value="True">
+                                        <Setter Property="Source" Value="Resources/шестеренка не активная.png"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                    <Image Height="11" Width="11" Margin="3,0,5,0">
+                        <Image.Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="Source" Value="Resources/стрелка не активный.png"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=cmbBorder}"
+                                                 Value="True">
+                                        <Setter Property="Source" Value="Resources/стрелка активный.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor,
+                                        AncestorType={x:Type Button},AncestorLevel=1}, Path=IsPressed}" Value="True">
+                                        <Setter Property="Source" Value="Resources/стрелка не активный.png"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </StackPanel>
+            </Button>
+        </Border>
+        <Grid Name="gridSetting" Grid.Row="2" Height="125" Width="310" 
+              HorizontalAlignment="Right" VerticalAlignment="Top"
+              Margin="0,42,20,0" Visibility="Hidden">
+            <Polygon Fill="Black" StrokeThickness="2" Stroke="#FF0C0101"
+                     Points="0,8,
+                     0,120,
+                     300,120,
+                     300,8,
+                     295,8,
+                     287,0
+                     279,8" HorizontalAlignment="Center"/>
+            <Polygon Fill="#FF272E38" StrokeThickness="1" Stroke="#FF40454E"
+                     Points="0,8,
+                     0,120,
+                     300,120,
+                     300,8,
+                     295,8,
+                     287,0
+                     279,8" HorizontalAlignment="Center"/>
+            <Grid Height="132" Width="299" HorizontalAlignment="Center" VerticalAlignment="Top"
+                  Margin="0,10,0,0">
+                <StackPanel Orientation="Vertical">
+                    <Button Style="{StaticResource cmbBtn}">
+                        <TextBlock Text="Использовать мой последний статус" />
+                    </Button>
+                    <Button Style="{StaticResource cmbBtn}">
+                        <TextBlock Text="Невидимый" />
+                    </Button>
+                    <Polygon Fill="White" Points="0,3,310,3" StrokeThickness="1"
+                             Stroke="#FF40454E"/>
+                    <Button Style="{StaticResource cmbBtn}">
+                        <Grid Width="299" Margin="-30,0,0,0">
+                            <TextBlock Text="Настройки"
+                                       Margin="30,3,0,0"/>
+                            <Image HorizontalAlignment="Left" Height="13" Width="13" 
+                                   Source="/Resources/шестеренка активная.png"
+                                   Margin="10,3,0,0"></Image>
+                        </Grid>
+                    </Button>
+                    <Button Style="{StaticResource cmbBtn}">
+                        <TextBlock Text="Продолжить без авторизации" Margin="0,3,0,0"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

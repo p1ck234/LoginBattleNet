@@ -122,5 +122,11 @@
   <ItemGroup>
     <Resource Include="Resources\стрелка активный.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\шестеренка активная.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\шестеренка не активная.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

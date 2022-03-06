@@ -50,5 +50,29 @@ namespace LoginBattleNet
                 this.DragMove();
             }
         }
+
+        private void btnReg_Click(object sender, RoutedEventArgs e)
+        {
+            if (gridRegion.Visibility == Visibility.Hidden)
+            {
+                gridRegion.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                gridRegion.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void btnSet_Click(object sender, RoutedEventArgs e)
+        {
+            if(gridSetting.Visibility == Visibility.Hidden)
+            {
+                gridSetting.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                gridSetting.Visibility= Visibility.Hidden;
+            }
+        }
     }
 }
