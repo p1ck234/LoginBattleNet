@@ -73,6 +73,26 @@ namespace LoginBattleNet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Вопрос {
+            get {
+                object obj = ResourceManager.GetObject("Вопрос", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap галочка {
+            get {
+                object obj = ResourceManager.GetObject("галочка", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap глобус_активный {
             get {
                 object obj = ResourceManager.GetObject("глобус_активный", resourceCulture);

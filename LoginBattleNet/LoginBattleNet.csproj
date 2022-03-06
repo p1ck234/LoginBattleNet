@@ -128,5 +128,11 @@
   <ItemGroup>
     <Resource Include="Resources\шестеренка не активная.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\галочка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Вопрос.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
